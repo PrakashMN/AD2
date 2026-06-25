@@ -43,8 +43,8 @@ export default function SustainableDesignPage() {
 
         <div
           style={{
-            columns: '3 300px',
-            columnGap: 16,
+            columns: '4 260px',
+            columnGap: 20,
             padding: '0 24px',
             maxWidth: 1400,
             margin: '0 auto',
@@ -59,12 +59,13 @@ export default function SustainableDesignPage() {
               transition={{ duration: 0.5, delay: i * 0.08 }}
               style={{
                 breakInside: 'avoid',
-                marginBottom: 16,
-                borderRadius: 12,
+                marginBottom: 20,
+                borderRadius: 16,
                 overflow: 'hidden',
                 position: 'relative',
                 cursor: 'pointer',
-                background: 'var(--card-bg)',
+                background: '#1a1a1a',
+                boxShadow: '0 2px 12px rgba(0,0,0,0.08)',
               }}
               onClick={() => setLightboxIndex(i)}
               onMouseEnter={(e) => {
@@ -80,6 +81,16 @@ export default function SustainableDesignPage() {
                 if (imgEl) imgEl.style.transform = 'scale(1)'
               }}
             >
+              <img
+                src={img.src}
+                alt={img.alt}
+                loading="lazy"
+                style={{
+                  width: '100%',
+                  display: 'block',
+                  transition: 'transform 0.4s ease',
+                }}
+              />
               <div
                 className="gallery-overlay"
                 style={{
@@ -124,16 +135,6 @@ export default function SustainableDesignPage() {
                   </svg>
                 </div>
               </div>
-              <img
-                src={img.src}
-                alt={img.alt}
-                loading="lazy"
-                style={{
-                  width: '100%',
-                  display: 'block',
-                  transition: 'transform 0.4s ease',
-                }}
-              />
             </motion.div>
           ))}
         </div>

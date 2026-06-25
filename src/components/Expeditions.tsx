@@ -47,7 +47,7 @@ const containerVariants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.5,
+      staggerChildren: 0.3,
     },
   },
 }
@@ -104,7 +104,7 @@ export default function Expeditions() {
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(2, 1fr)',
-            gap: 28,
+            gap: 20,
           }}
         >
           {expeditions.map((exp) => (
@@ -114,23 +114,24 @@ export default function Expeditions() {
               style={{
                 borderRadius: 16,
                 overflow: 'hidden',
-                border: '1px solid var(--border)',
-                background: 'var(--bg)',
+                border: '1px solid #333',
+                background: '#1a1a1a',
+                boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
                 transition: 'box-shadow 0.4s ease, transform 0.4s ease, border-color 0.3s ease',
                 cursor: 'pointer',
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.boxShadow = 'var(--shadow-lg)'
+                e.currentTarget.style.boxShadow = '0 12px 40px rgba(0,0,0,0.5)'
                 e.currentTarget.style.transform = 'translateY(-4px)'
-                e.currentTarget.style.borderColor = 'var(--border-light)'
+                e.currentTarget.style.borderColor = 'rgba(59,130,246,0.3)'
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.boxShadow = 'none'
+                e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.3)'
                 e.currentTarget.style.transform = 'translateY(0)'
-                e.currentTarget.style.borderColor = 'var(--border)'
+                e.currentTarget.style.borderColor = '#333'
               }}
             >
-              <div style={{ aspectRatio: '16/10', overflow: 'hidden', position: 'relative' }}>
+              <div style={{ aspectRatio: '16/9', overflow: 'hidden', position: 'relative' }}>
                 <div
                   style={{
                     position: 'absolute',
@@ -153,7 +154,7 @@ export default function Expeditions() {
                   onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)' }}
                 />
               </div>
-              <div style={{ padding: '24px 28px 28px' }}>
+              <div style={{ padding: '16px 20px 20px' }}>
                 <div
                   style={{
                     display: 'flex',
@@ -169,9 +170,16 @@ export default function Expeditions() {
                       fontWeight: 600,
                       textTransform: 'uppercase',
                       letterSpacing: '0.12em',
-                      color: 'var(--text-muted)',
+                      color: '#999',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 6,
                     }}
                   >
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+                      <path d="M12 2L2 22h20L12 2z" />
+                      <path d="M12 8l-5 14h10L12 8z" />
+                    </svg>
                     {exp.year} &middot; {exp.elevation}
                   </span>
                   <span
@@ -182,8 +190,8 @@ export default function Expeditions() {
                       fontWeight: 600,
                       textTransform: 'uppercase',
                       letterSpacing: '0.08em',
-                      background: exp.status === 'Summited' ? 'var(--gold)' : 'var(--border)',
-                      color: exp.status === 'Summited' ? '#fff' : 'var(--text-muted)',
+                      background: exp.status === 'Summited' ? 'var(--gold)' : '#333',
+                      color: exp.status === 'Summited' ? '#fff' : '#999',
                     }}
                   >
                     {exp.status}
@@ -192,9 +200,10 @@ export default function Expeditions() {
                 <h3
                   style={{
                     fontFamily: 'var(--font-serif)',
-                    fontSize: '1.35rem',
+                    fontSize: '1.1rem',
                     fontWeight: 700,
                     marginBottom: 10,
+                    color: '#f0f0f0',
                   }}
                 >
                   {exp.peak}
@@ -202,9 +211,9 @@ export default function Expeditions() {
                 <p
                   style={{
                     fontFamily: 'var(--font-sans)',
-                    fontSize: '0.875rem',
+                    fontSize: '0.8rem',
                     lineHeight: 1.7,
-                    color: 'var(--text-muted)',
+                    color: '#999',
                   }}
                 >
                   {exp.story}

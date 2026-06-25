@@ -30,7 +30,7 @@ export default function About() {
               alignItems: 'center',
               gap: 12,
             }}>
-              <span style={{ width: 32, height: 1, background: 'var(--accent)', display: 'inline-block' }} />
+              <span style={{ width: 48, height: 2, background: 'var(--accent)', display: 'inline-block', borderRadius: 1 }} />
               About
             </p>
             <h2 className="section-title" style={{ marginBottom: 24 }}>
@@ -45,7 +45,7 @@ export default function About() {
                 marginBottom: 16,
               }}
             >
-              Based in karnataka, India, Akshay Deshpande is an mountaineer, photographer,
+              Based in Karnataka, India, Akshay Deshpande is a mountaineer, photographer,
               and storyteller on a relentless quest to explore the unknown. His
               journey began on the rugged trails of the Western Ghats and has since
               taken him to some of the most remote corners of the planet.
@@ -56,50 +56,94 @@ export default function About() {
                 fontSize: '1rem',
                 lineHeight: 1.9,
                 color: 'var(--muted)',
-                marginBottom: 48,
+                marginBottom: 12,
               }}
             >
               From navigating crevasse fields on frozen glaciers to documenting
-              vanishing cultures through his lens, Akshay brings an unwavering
-              commitment to every expedition he undertakes.
+              vanishing cultures through his lens.
             </p>
+            <blockquote
+              style={{
+                fontFamily: 'var(--font-serif)',
+                fontSize: 'clamp(1.1rem, 2vw, 1.35rem)',
+                fontWeight: 500,
+                color: 'var(--accent)',
+                lineHeight: 1.6,
+                marginBottom: 48,
+                paddingLeft: 24,
+                borderLeft: '3px solid var(--accent)',
+                fontStyle: 'italic',
+              }}
+            >
+              &ldquo;Akshay brings an unwavering commitment to every expedition he undertakes.&rdquo;
+            </blockquote>
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 14,
+                marginBottom: 20,
+              }}
+            >
+              <span style={{ width: 24, height: 2, background: 'var(--accent)', display: 'inline-block', borderRadius: 1 }} />
+              <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.6rem', fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--text-muted)' }}>
+                By the numbers
+              </span>
+            </div>
             <div
               style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(2, 1fr)',
-                gap: 20,
+                gridTemplateColumns: 'repeat(3, 1fr)',
+                gap: 12,
               }}
             >
               {[
-                { value: '7+', label: 'Major Expeditions' },
-                { value: '7000m+', label: 'Highest Altitude' },
+                { value: '7+', label: 'Major Expeditions', icon: 'M4 21V3h12l-2 6 2 6H6' },
+                { value: '7000m+', label: 'Highest Altitude', icon: 'M12 2L2 22h20L12 2zM12 8l-5 14h10L12 8z' },
+                { value: '8+', label: 'Years Exploring', icon: 'M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z' },
               ].map((stat) => (
                 <div
                   key={stat.label}
                   style={{
                     textAlign: 'center',
-                    padding: '28px 16px',
-                    background: 'rgba(255,255,255,0.02)',
-                    borderRadius: 12,
-                    border: '1px solid rgba(255,255,255,0.05)',
+                    padding: '18px 10px 16px',
+                    background: '#1a1a1a',
+                    borderRadius: 14,
+                    border: '1px solid #333',
+                    boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
                     transition: 'all 0.3s ease',
                     cursor: 'default',
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.background = 'rgba(59,130,246,0.06)'
-                    e.currentTarget.style.borderColor = 'rgba(59,130,246,0.2)'
+                    e.currentTarget.style.background = '#252525'
+                    e.currentTarget.style.borderColor = 'rgba(59,130,246,0.3)'
+                    e.currentTarget.style.boxShadow = '0 8px 32px rgba(0,0,0,0.4)'
                     e.currentTarget.style.transform = 'translateY(-4px)'
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.background = 'rgba(255,255,255,0.02)'
-                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.05)'
+                    e.currentTarget.style.background = '#1a1a1a'
+                    e.currentTarget.style.borderColor = '#333'
+                    e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.3)'
                     e.currentTarget.style.transform = 'translateY(0)'
                   }}
                 >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="var(--accent)"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    style={{ marginBottom: 6, display: 'inline-block' }}
+                  >
+                    <path d={stat.icon} />
+                  </svg>
                   <div
                     style={{
                       fontFamily: 'var(--font-serif)',
-                      fontSize: '2.2rem',
+                      fontSize: '1.4rem',
                       fontWeight: 700,
                       color: 'var(--accent)',
                       marginBottom: 4,
@@ -111,9 +155,9 @@ export default function About() {
                   <div
                     style={{
                       fontFamily: 'var(--font-sans)',
-                      fontSize: '0.7rem',
+                      fontSize: '0.55rem',
                       fontWeight: 500,
-                      color: 'var(--muted)',
+                      color: '#999',
                       textTransform: 'uppercase',
                       letterSpacing: '0.08em',
                     }}
@@ -130,33 +174,16 @@ export default function About() {
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.7, ease: 'easeOut', delay: 0.15 }}
             style={{
-              position: 'relative',
               width: '100%',
-              aspectRatio: '3 / 4',
               maxWidth: 420,
               margin: '0 auto',
             }}
           >
             <div
               style={{
-                position: 'absolute',
-                top: -16,
-                left: -16,
-                width: '100%',
-                height: '100%',
-                border: '2px solid rgba(59,130,246,0.15)',
-                borderRadius: 4,
-                zIndex: 0,
-              }}
-            />
-            <div
-              style={{
-                position: 'relative',
-                zIndex: 1,
-                width: '100%',
-                height: '100%',
+                borderRadius: 6,
                 overflow: 'hidden',
-                borderRadius: 4,
+                boxShadow: '0 16px 48px rgba(0,0,0,0.15), 0 2px 8px rgba(0,0,0,0.06)',
               }}
             >
               <img
@@ -164,8 +191,6 @@ export default function About() {
                 alt="Akshay Deshpande mountaineering"
                 style={{
                   width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
                   display: 'block',
                   transition: 'transform 0.6s ease',
                 }}

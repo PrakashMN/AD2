@@ -50,10 +50,10 @@ export default function Navbar() {
           right: 0,
           zIndex: 50,
           transition: 'background 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease',
-          background: isDarkPage ? (isScrolled ? 'rgba(0,0,0,0.85)' : 'rgba(0,0,0,0.3)') : isTransparent ? 'rgba(250, 249, 246, 0.05)' : '#FAF9F6',
-          backdropFilter: isDarkPage ? 'blur(18px)' : 'blur(12px)',
-          WebkitBackdropFilter: isDarkPage ? 'blur(18px)' : 'blur(12px)',
-          borderBottom: isDarkPage ? '1px solid rgba(255,255,255,0.06)' : isTransparent ? '1px solid transparent' : '1px solid var(--glass-border)',
+          background: isTransparent ? 'transparent' : 'rgba(15,17,23,0.92)',
+          backdropFilter: isTransparent ? 'none' : 'blur(8px)',
+          WebkitBackdropFilter: isTransparent ? 'none' : 'blur(8px)',
+          borderBottom: isTransparent ? '1px solid transparent' : '1px solid rgba(255,255,255,0.06)',
           boxShadow: isDarkPage ? '0 1px 0 rgba(255,255,255,0.04)' : isTransparent ? 'none' : 'var(--shadow-sm)',
         }}
     >
@@ -158,60 +158,54 @@ export default function Navbar() {
           className="nav-links"
         >
           {navLinks.map((link) => {
-            const isActive = location.pathname === link.path
-            const isContact = link.label === 'Contact'
-            return (
-              <li key={link.path}>
-                <Link
-                  to={link.path}
-                  onClick={() => window.scrollTo(0, 0)}
-                  style={{
-                    fontFamily: 'var(--font-sans)',
-                    fontSize: '0.75rem',
-                    fontWeight: isActive ? 600 : 500,
-                    letterSpacing: '0.04em',
-                    color: isContact ? '#fff' : isActive
-                      ? isDarkPage ? '#fff' : isTransparent ? '#fff' : 'var(--text)'
-                      : isDarkPage ? 'rgba(255,255,255,0.8)' : isTransparent ? 'rgba(255,255,255,0.9)' : 'var(--text)',
-                    textDecoration: 'none',
-                    whiteSpace: 'nowrap',
-                    padding: isContact ? '8px 22px' : '6px 14px',
-                    borderRadius: 8,
-                    background: isContact ? '#000' : isActive
-                      ? isDarkPage ? 'rgba(255,255,255,0.12)' : isTransparent ? 'rgba(255,255,255,0.1)' : 'var(--accent-subtle)'
-                      : 'transparent',
-                    transition: 'color 0.2s ease, background 0.2s ease',
-                  }}
-                  onMouseEnter={(e) => {
-                    if (!isActive) {
-                      if (isContact) {
-                        e.currentTarget.style.background = '#222'
-                      } else if (isDarkPage) {
-                        e.currentTarget.style.color = '#fff'
-                        e.currentTarget.style.background = 'rgba(255,255,255,0.08)'
-                      } else {
-                        e.currentTarget.style.color = isTransparent ? '#fff' : 'var(--text)'
-                        e.currentTarget.style.background = isTransparent ? 'rgba(255,255,255,0.06)' : 'var(--accent-subtle)'
+              const isActive = location.pathname === link.path
+              const isContact = link.label === 'Contact'
+              const isProject = link.label === 'Project 8K*2' || link.label === 'Project 7 in 3'
+              return (
+                <li key={link.path} style={{ position: 'relative' }}>
+                  <Link
+                    to={link.path}
+                    onClick={() => window.scrollTo(0, 0)}
+                    title={isProject ? (link.label === 'Project 8K*2' ? 'Everest (8,848m) + Lhotse (8,516m) in one season' : 'Seven Summits across all continents in 3 years') : undefined}
+                    style={{
+                      fontFamily: 'var(--font-sans)',
+                      fontSize: '0.75rem',
+                      fontWeight: isActive ? 600 : 500,
+                      letterSpacing: '0.04em',
+                      color: isContact ? '#fff' : isActive
+                        ? isDarkPage ? '#fff' : isTransparent ? '#fff' : 'var(--text)'
+                        : isDarkPage ? 'rgba(255,255,255,0.8)' : isTransparent ? 'rgba(255,255,255,0.9)' : 'var(--text)',
+                      textDecoration: 'none',
+                      whiteSpace: 'nowrap',
+                      padding: isContact ? '8px 22px' : '6px 14px',
+                      borderRadius: isContact ? 8 : 0,
+                      background: isContact ? 'var(--accent)' : 'transparent',
+                      borderBottom: isActive && !isContact ? '2px solid var(--accent)' : '2px solid transparent',
+                      paddingBottom: isActive && !isContact ? '4px' : '6px',
+                      transition: 'color 0.2s ease, background 0.2s ease, border-color 0.2s ease',
+                    }}
+                    onMouseEnter={(e) => {
+                      if (!isActive && !isContact) {
+                        e.currentTarget.style.color = isDarkPage ? '#fff' : isTransparent ? '#fff' : 'var(--text)'
+                        e.currentTarget.style.borderColor = isDarkPage ? 'rgba(255,255,255,0.3)' : isTransparent ? 'rgba(255,255,255,0.3)' : 'var(--accent-subtle)'
                       }
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (!isActive) {
-                      if (isContact) {
-                        e.currentTarget.style.background = '#000'
-                      } else if (isDarkPage) {
-                        e.currentTarget.style.color = 'rgba(255,255,255,0.8)'
-                        e.currentTarget.style.background = 'transparent'
-                      } else {
-                        e.currentTarget.style.color = isTransparent ? 'rgba(255,255,255,0.9)' : 'var(--text)'
-                        e.currentTarget.style.background = 'transparent'
+                      if (isContact && !isActive) {
+                        e.currentTarget.style.background = 'var(--accent-hover)'
                       }
-                    }
-                  }}
-                >
-                  {link.label}
-                </Link>
-              </li>
+                    }}
+                    onMouseLeave={(e) => {
+                      if (!isActive && !isContact) {
+                        e.currentTarget.style.color = isDarkPage ? 'rgba(255,255,255,0.8)' : isTransparent ? 'rgba(255,255,255,0.9)' : 'var(--text)'
+                        e.currentTarget.style.borderColor = 'transparent'
+                      }
+                      if (isContact && !isActive) {
+                        e.currentTarget.style.background = 'var(--accent)'
+                      }
+                    }}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
             )
           })}
         </ul>
@@ -229,38 +223,42 @@ export default function Navbar() {
           }}
         >
           {navLinks.map((link) => {
-            const isActive = location.pathname === link.path
-            const isContact = link.label === 'Contact'
-            return (
-              <Link
-                key={link.path}
-                to={link.path}
-                style={{
-                  display: 'block',
-                  padding: '12px 16px',
-                  fontFamily: 'var(--font-sans)',
-                  fontSize: '0.9rem',
-                  fontWeight: isActive ? 600 : 500,
-                  color: isContact ? '#fff' : (isActive ? (isDarkPage ? '#fff' : 'var(--accent)') : (isDarkPage ? 'rgba(255,255,255,0.8)' : 'var(--text)')),
-                  textDecoration: 'none',
-                  borderBottom: isDarkPage ? '1px solid rgba(255,255,255,0.06)' : '1px solid var(--border-light)',
-                  background: isContact ? '#000' : (isActive && isDarkPage ? 'rgba(255,255,255,0.08)' : 'transparent'),
-                  borderRadius: 8,
-                  margin: '4px 0',
-                }}
-                onMouseEnter={(e) => {
-                  if (isContact) {
-                    e.currentTarget.style.background = '#222'
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  if (isContact) {
-                    e.currentTarget.style.background = '#000'
-                  }
-                }}
-              >
-                {link.label}
-              </Link>
+              const isActive = location.pathname === link.path
+              const isContact = link.label === 'Contact'
+              const isProject = link.label === 'Project 8K*2' || link.label === 'Project 7 in 3'
+              return (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  title={isProject ? (link.label === 'Project 8K*2' ? 'Everest (8,848m) + Lhotse (8,516m) in one season' : 'Seven Summits across all continents in 3 years') : undefined}
+                  style={{
+                    display: 'block',
+                    padding: '12px 16px',
+                    fontFamily: 'var(--font-sans)',
+                    fontSize: '0.9rem',
+                    fontWeight: isActive ? 600 : 500,
+                    color: isContact ? '#fff' : (isActive ? (isDarkPage ? '#fff' : 'var(--accent)') : (isDarkPage ? 'rgba(255,255,255,0.8)' : 'var(--text)')),
+                    textDecoration: 'none',
+                    borderLeft: isActive && !isContact ? '3px solid var(--accent)' : '3px solid transparent',
+                    borderBottom: isDarkPage ? '1px solid rgba(255,255,255,0.06)' : '1px solid var(--border-light)',
+                    background: isContact ? 'var(--accent)' : (isActive && isDarkPage ? 'rgba(255,255,255,0.08)' : 'transparent'),
+                    paddingLeft: isActive && !isContact ? '13px' : '16px',
+                    borderRadius: 0,
+                    margin: '4px 0',
+                  }}
+                  onMouseEnter={(e) => {
+                    if (isContact) {
+                      e.currentTarget.style.background = 'var(--accent-hover)'
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (isContact) {
+                      e.currentTarget.style.background = 'var(--accent)'
+                    }
+                  }}
+                >
+                  {link.label}
+                </Link>
             )
           })}
         </div>
