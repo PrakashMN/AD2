@@ -10,7 +10,7 @@ const sponsors = [
 ]
 
 const individuals = [
-  { name: 'Mr Mihir Potdar', role: 'Sponsor' },
+  { name: 'Mr Mihir Potdar'},
   { name: 'Dr. Ravi Patil', role: 'Vijaya Hospital' },
 ]
 

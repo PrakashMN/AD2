@@ -367,7 +367,7 @@ export default function Project7in3() {
               }}
             >
               <img
-                src="/Images/Bandarpoonch/highest_summits_infographic.jpg"
+                src="/Images/Bandarpoonch/New%20one.jpeg"
                 alt="Highest summits infographic"
                 style={{ width: '100%', height: '100%', objectFit: 'contain', maxHeight: 500, display: 'block' }}
               />

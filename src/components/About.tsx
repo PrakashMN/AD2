@@ -41,7 +41,7 @@ export default function About() {
                 fontFamily: 'var(--font-sans)',
                 fontSize: '1rem',
                 lineHeight: 1.9,
-                color: 'var(--muted)',
+                color: 'var(--text-muted)',
                 marginBottom: 16,
               }}
             >
@@ -55,7 +55,7 @@ export default function About() {
                 fontFamily: 'var(--font-sans)',
                 fontSize: '1rem',
                 lineHeight: 1.9,
-                color: 'var(--muted)',
+                color: 'var(--text-muted)',
                 marginBottom: 12,
               }}
             >
@@ -99,7 +99,7 @@ export default function About() {
             >
               {[
                 { value: '7+', label: 'Major Expeditions', icon: 'M4 21V3h12l-2 6 2 6H6' },
-                { value: '7000m+', label: 'Highest Altitude', icon: 'M12 2L2 22h20L12 2zM12 8l-5 14h10L12 8z' },
+                { value: '8000m+', label: 'Highest Altitude', icon: 'M12 2L2 22h20L12 2zM12 8l-5 14h10L12 8z' },
                 { value: '8+', label: 'Years Exploring', icon: 'M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z' },
               ].map((stat) => (
                 <div

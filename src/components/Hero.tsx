@@ -2,10 +2,10 @@ import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const images = [
-  '/Images/Kanamo/2017/20170820_074723.jpg',
   '/Images/Bandarpoonch/IMG_20180430_104240.jpg',
-  'https://static.wixstatic.com/media/4b485b_489dcb35e10b4673af582920559d704f~mv2.jpg/v1/fill/w_984,h_639,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/4b485b_489dcb35e10b4673af582920559d704f~mv2.jpg',
-  '/Images/Kanamo/2017/20170820_074736.jpg',
+  '/Images/Bandarpoonch/DSC_7714.jpg',
+  '/Images/Bandarpoonch/DSC_7624.jpg',
+  '/Images/Nun/PXL_20230806_064958997.jpg',
   '/Images/Satopanth/IMG20220826125459.jpg',
   '/Images/Satopanth/IMG20220826131401.jpg',
   '/Images/Nun/IMG20230806122233.jpg',
@@ -18,9 +18,10 @@ const headings = [
   { line1: 'Finding peace above', line2: 'the clouds' },
   { line1: 'Pushing limits, reaching', line2: 'the impossible' },
   { line1: 'Born to explore', line2: 'the highest peaks' },
+  { line1: 'The wild calls and', line2: 'we must follow' },
 ]
 
-const quoteColors = ['#FFD54F', '#0D47A1', '#FFFFFF', '#81C784', '#1A237E', '#FF6600']
+const quoteColors = ['#FFD54F', '#FFD54F', '#FFFFFF', '#810ff0', '#4952b6', '#FFD54F', '#FFD54F']
 
 const bodyTexts = [
   ' Mountaineer | Photographer | Storyteller | Chasing horizons beyond the Himalayas — from the Western Ghats to the great ranges of the Himalaya.',
@@ -198,9 +199,10 @@ export default function Hero() {
           position: 'relative',
           zIndex: 2,
           textAlign: 'left',
-          padding: '0 24px 0 48px',
+            padding: '0 24px 0 24px',
           maxWidth: 800,
           marginTop: -40,
+          marginLeft: -350,
         }}
       >
         <div
@@ -211,7 +213,7 @@ export default function Hero() {
             marginBottom: 32,
             padding: '8px 20px 8px 24px',
             borderRadius: 9999,
-            border: '1px solid rgba(255,255,255,0.2)',
+            border: '1px solid rgb(7, 232, 252)',
             background: 'rgba(0,0,0,0.35)',
             backdropFilter: 'blur(12px)',
             transition: 'opacity 0.4s ease',
@@ -353,7 +355,7 @@ export default function Hero() {
       </div>
       )}
 
-      {current > 0 && current < headings.length && current !== 4 && current !== 5 && (
+      {current > 0 && current < headings.length && current !== 3 && current !== 4 && current !== 5 && (
         <h1
           style={{
             position: 'absolute',
@@ -369,6 +371,31 @@ export default function Hero() {
             color: quoteColors[current],
             letterSpacing: '-0.02em',
             textAlign: 'right',
+            maxWidth: 520,
+            margin: 0,
+          }}
+        >
+          &ldquo;{headings[current].line1}<br />
+          {headings[current].line2}&rdquo;
+        </h1>
+      )}
+
+      {current === 3 && (
+        <h1
+          style={{
+            position: 'absolute',
+            zIndex: 2,
+            left: 48,
+            top: '68%',
+            transform: 'translateY(-50%)',
+            fontFamily: 'var(--font-serif)',
+            fontSize: 'clamp(1.4rem, 4vw, 2.2rem)',
+            fontWeight: 400,
+            fontStyle: 'italic',
+            lineHeight: 1.4,
+            color: quoteColors[current],
+            letterSpacing: '-0.02em',
+            textAlign: 'left',
             maxWidth: 520,
             margin: 0,
           }}
