@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { createPortal } from 'react-dom'
 
 const navLinks = [
   { label: 'Home', path: '/' },
@@ -38,6 +39,11 @@ export default function Navbar() {
     setMenuOpen(false)
   }, [location])
 
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [menuOpen])
+
   const isDarkPage = location.pathname === '/project-8k-x-2'
   const isTransparent = isHome && !isScrolled
 
@@ -59,9 +65,7 @@ export default function Navbar() {
     >
       <nav
         style={{
-          maxWidth: 'var(--container)',
-          margin: '0 auto',
-          padding: '0 24px',
+          padding: '0 32px',
           height: 'var(--nav-height)',
           display: 'flex',
           alignItems: 'center',
@@ -91,7 +95,7 @@ export default function Navbar() {
             <span
               style={{
                 fontFamily: 'var(--font-sans)',
-                fontSize: '0.8rem',
+                  fontSize: '1.2rem',
                 fontWeight: 600,
                 letterSpacing: '0.22em',
                 textTransform: 'uppercase',
@@ -104,8 +108,8 @@ export default function Navbar() {
             </span>
             <span
               style={{
-                fontFamily: 'var(--font-sans)',
-                fontSize: '0.55rem',
+                  fontFamily: 'var(--font-sans)',
+                    fontSize: '0.65rem',
                 fontWeight: 400,
                 letterSpacing: '0.15em',
                 textTransform: 'uppercase',
@@ -211,73 +215,125 @@ export default function Navbar() {
         </ul>
       </nav>
 
-      {menuOpen && (
+      {menuOpen && createPortal(
         <div
           style={{
-            background: isDarkPage ? 'rgba(0,0,0,0.85)' : 'var(--glass)',
-            backdropFilter: 'blur(16px)',
-            WebkitBackdropFilter: 'blur(16px)',
-            borderBottom: isDarkPage ? '1px solid rgba(255,255,255,0.06)' : '1px solid var(--glass-border)',
-            padding: '8px 24px 16px',
-            animation: 'fadeIn 0.2s ease',
+            position: 'fixed',
+            inset: 0,
+            zIndex: 9999,
+            background: 'rgba(10,12,18,0.97)',
+            backdropFilter: 'blur(24px)',
+            WebkitBackdropFilter: 'blur(24px)',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            animation: 'fadeIn 0.3s ease',
           }}
         >
-          {navLinks.map((link) => {
-              const isActive = location.pathname === link.path
-              const isContact = link.label === 'Contact'
-              const isProject = link.label === 'Project 8K*2' || link.label === 'Project 7 in 3'
-              return (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  title={isProject ? (link.label === 'Project 8K*2' ? 'Everest (8,848m) + Lhotse (8,516m) in one season' : 'Seven Summits across all continents in 3 years') : undefined}
-                  style={{
-                    display: 'block',
-                    padding: '12px 16px',
-                    fontFamily: 'var(--font-sans)',
-                    fontSize: '0.9rem',
-                    fontWeight: isActive ? 600 : 500,
-                    color: isContact ? '#fff' : (isActive ? (isDarkPage ? '#fff' : 'var(--accent)') : (isDarkPage ? 'rgba(255,255,255,0.8)' : 'var(--text)')),
-                    textDecoration: 'none',
-                    borderLeft: isActive && !isContact ? '3px solid var(--accent)' : '3px solid transparent',
-                    borderBottom: isDarkPage ? '1px solid rgba(255,255,255,0.06)' : '1px solid var(--border-light)',
-                    background: isContact ? 'var(--accent)' : (isActive && isDarkPage ? 'rgba(255,255,255,0.08)' : 'transparent'),
-                    paddingLeft: isActive && !isContact ? '13px' : '16px',
-                    borderRadius: 0,
-                    margin: '4px 0',
-                  }}
-                  onMouseEnter={(e) => {
-                    if (isContact) {
-                      e.currentTarget.style.background = 'var(--accent-hover)'
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (isContact) {
-                      e.currentTarget.style.background = 'var(--accent)'
-                    }
-                  }}
-                >
-                  {link.label}
-                </Link>
-            )
-          })}
-        </div>
+          <button
+            onClick={() => setMenuOpen(false)}
+            style={{
+              position: 'absolute',
+              top: 16,
+              right: 16,
+              width: 40,
+              height: 40,
+              borderRadius: 8,
+              border: 'none',
+              background: 'rgba(255,255,255,0.08)',
+              color: '#fff',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+            aria-label="Close menu"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+              <path d="M18 6L6 18M6 6l12 12" />
+            </svg>
+          </button>
+          <nav
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: 8,
+              padding: '0 24px',
+              width: '100%',
+              maxWidth: 400,
+            }}
+          >
+            {navLinks.map((link) => {
+                const isActive = location.pathname === link.path
+                const isContact = link.label === 'Contact'
+                return (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      width: '100%',
+                      padding: '16px 24px',
+                      fontFamily: 'var(--font-sans)',
+                      fontSize: '1.2rem',
+                      fontWeight: isActive ? 700 : 400,
+                      letterSpacing: '0.08em',
+                      color: isActive
+                        ? '#fff'
+                        : isContact ? '#fff' : 'rgba(255,255,255,0.6)',
+                      textDecoration: 'none',
+                      textTransform: 'uppercase',
+                      background: isContact
+                        ? 'var(--accent)'
+                        : isActive ? 'rgba(255,255,255,0.08)' : 'transparent',
+                      borderRadius: 12,
+                      transition: 'all 0.25s ease',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background = isContact ? 'var(--accent-hover)' : 'rgba(255,255,255,0.12)'
+                      e.currentTarget.style.color = '#fff'
+                      e.currentTarget.style.transform = 'scale(1.05)'
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'scale(1)'
+                      e.currentTarget.style.background = isContact
+                        ? 'var(--accent)'
+                        : isActive ? 'rgba(255,255,255,0.08)' : 'transparent'
+                      e.currentTarget.style.color = isActive
+                        ? '#fff'
+                        : isContact ? '#fff' : 'rgba(255,255,255,0.6)'
+                    }}
+                  >
+                    {link.label}
+                  </Link>
+              )
+            })}
+          </nav>
+        </div>,
+        document.body
       )}
 
       <style>{`
         @media (max-width: 900px) {
           .mobile-menu-btn { display: flex !important; }
           .nav-links { display: none !important; }
+          nav > a > div > span:first-child { font-size: 0.9rem !important; letter-spacing: 0.12em !important; }
+          nav > a > div > span:last-child { font-size: 0.45rem !important; letter-spacing: 0.1em !important; }
+          nav { padding: 0 20px !important; }
         }
         @media (max-width: 480px) {
-          nav > a > span { font-size: 0.7rem !important; }
-          header > div > a { font-size: 0.82rem !important; padding: 10px 0 !important; }
-        }
-        @media (max-width: 380px) {
-          header > div { max-height: 60vh !important; overflow-y: auto !important; }
+          nav > a > span { font-size: 0.8rem !important; }
         }
         @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(-4px); }
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        @keyframes slideUp {
+          from { opacity: 0; transform: translateY(20px); }
           to { opacity: 1; transform: translateY(0); }
         }
       `}</style>

@@ -36,7 +36,7 @@ export default function Sponsors() {
         viewport={{ once: true, margin: '-60px' }}
         transition={{ duration: 0.6 }}
       >
-      <div style={{ maxWidth: 800, margin: '0 auto' }}>
+        <div style={{ maxWidth: 800, margin: '0 auto' }}>
         <p style={{
           fontFamily: 'var(--font-sans)',
           fontSize: '0.6rem',
@@ -70,19 +70,20 @@ export default function Sponsors() {
               key={s.name}
               style={{
                 padding: '10px 16px',
-                background: 'rgba(255,255,255,0.02)',
+                background: '#ffffff',
                 borderRadius: 8,
-                border: '1px solid rgba(255,255,255,0.04)',
+                border: '1px solid #e5e7eb',
                 transition: 'all 0.3s ease',
+                boxShadow: '0 1px 3px rgba(0,0,0,0.08)',
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'rgba(255,255,255,0.05)'
-                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'
+                e.currentTarget.style.background = '#f9fafb'
+                e.currentTarget.style.borderColor = '#d1d5db'
                 e.currentTarget.style.transform = 'translateY(-2px)'
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'rgba(255,255,255,0.02)'
-                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.04)'
+                e.currentTarget.style.background = '#ffffff'
+                e.currentTarget.style.borderColor = '#e5e7eb'
                 e.currentTarget.style.transform = 'translateY(0)'
               }}
             >
@@ -115,6 +116,10 @@ export default function Sponsors() {
               background: 'rgba(255,255,255,0.02)',
               borderRadius: 8,
               border: '1px solid rgba(255,255,255,0.04)',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
             }}>
               <p
                 style={{
@@ -122,6 +127,8 @@ export default function Sponsors() {
                   fontSize: '0.85rem',
                   fontWeight: 700,
                   color: 'var(--text)',
+                  textAlign: 'center',
+                  margin: 0,
                 }}
               >
                 {p.name}
@@ -133,7 +140,9 @@ export default function Sponsors() {
                     fontSize: '0.7rem',
                     color: 'var(--text-muted)',
                     marginTop: 2,
+                    marginBottom: 0,
                     letterSpacing: '0.05em',
+                    textAlign: 'center',
                   }}
                 >
                   {p.role}
@@ -213,7 +222,8 @@ export default function Sponsors() {
           section:has(> div > div > p:first-child) > div > div > div:first-of-type > img { height: 180px !important; }
           section:has(> div > div > p:first-child) > div > div > div:first-of-type + div { gap: 12px !important; }
           section:has(> div > div > p:first-child) > div > div > div:first-of-type + div > div { padding: 8px 12px !important; }
-          section:has(> div > div > p:first-child) > div > div > div:first-of-type + div > div > p:first-child { font-size: 0.75rem !important; }
+          section:has(> div > div > p:first-child) > div > div > div:first-of-type + div > div > p:first-child { font-size: 0.75rem !important; text-align: center !important; }
+          section:has(> div > div > p:first-child) > div > div > div:first-of-type + div > div > p:last-child { text-align: center !important; }
         }
       `}</style>
     </section>

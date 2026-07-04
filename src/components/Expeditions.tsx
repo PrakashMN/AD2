@@ -170,28 +170,28 @@ export default function Expeditions() {
                       fontWeight: 600,
                       textTransform: 'uppercase',
                       letterSpacing: '0.12em',
-                      color: '#999',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: 6,
-                    }}
-                  >
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
-                      <path d="M12 2L2 22h20L12 2z" />
-                      <path d="M12 8l-5 14h10L12 8z" />
-                    </svg>
-                    {exp.year} &middot; {exp.elevation}
-                  </span>
-                  <span
-                    style={{
-                      padding: '4px 14px',
-                      borderRadius: 9999,
-                      fontSize: '0.6rem',
-                      fontWeight: 600,
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.08em',
-                      background: exp.status === 'Summited' ? 'var(--gold)' : '#333',
-                      color: exp.status === 'Summited' ? '#fff' : '#999',
+                    color: '#bbb',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 6,
+                  }}
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+                    <path d="M12 2L2 22h20L12 2z" />
+                    <path d="M12 8l-5 14h10L12 8z" />
+                  </svg>
+                  {exp.year} &middot; {exp.elevation}
+                </span>
+                <span
+                  style={{
+                    padding: '4px 14px',
+                    borderRadius: 9999,
+                    fontSize: '0.6rem',
+                    fontWeight: 600,
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.08em',
+                    background: exp.status === 'Summited' ? 'var(--gold)' : '#333',
+                    color: exp.status === 'Summited' ? '#fff' : '#bbb',
                     }}
                   >
                     {exp.status}
@@ -208,15 +208,15 @@ export default function Expeditions() {
                 >
                   {exp.peak}
                 </h3>
-                <p
-                  style={{
-                    fontFamily: 'var(--font-sans)',
-                    fontSize: '0.8rem',
-                    lineHeight: 1.7,
-                    color: '#999',
-                  }}
-                >
-                  {exp.story}
+                  <p
+                    style={{
+                      fontFamily: 'var(--font-sans)',
+                      fontSize: '0.8rem',
+                      lineHeight: 1.7,
+                      color: '#bbb',
+                    }}
+                  >
+                    {exp.story}
                 </p>
               </div>
             </motion.article>

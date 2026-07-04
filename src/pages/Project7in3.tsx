@@ -25,8 +25,9 @@ export default function Project7in3() {
   const scrollToIndex = (index: number) => {
     const container = cardsRef.current
     if (!container) return
-    const scrollStep = 210
-    container.scrollTo({ top: index * scrollStep, behavior: 'smooth' })
+    const isMobile = window.innerWidth <= 768
+    const scrollStep = isMobile ? 212 : 210
+    container.scrollTo({ [isMobile ? 'left' : 'top']: index * scrollStep, behavior: 'smooth' } as any)
     const peak = sevenSummits[index]
     currentIndexRef.current = index
     setActiveBg(peak.image)
@@ -594,7 +595,11 @@ export default function Project7in3() {
           section:nth-of-type(3) > div > div { grid-template-columns: 1fr !important; gap: 32px !important; }
           section:nth-of-type(4) > div > div > div { width: 100% !important; height: 300px !important; }
           .hero-layout { grid-template-columns: 1fr !important; gap: 24px !important; }
-          .hero-cards { overflow-x: auto !important; overflow-y: hidden !important; flex-direction: row !important; max-height: none !important; padding-bottom: 20px !important; }
+          .hero-cards { overflow-x: auto !important; overflow-y: hidden !important; flex-direction: row !important; max-height: none !important; padding: 16px 12px !important; gap: 12px !important; background: rgba(0,0,0,0.35) !important; backdrop-filter: blur(8px) !important; -webkit-backdrop-filter: blur(8px) !important; border-radius: 16px !important; }
+          .hero-cards > div { width: 200px !important; height: 150px !important; }
+          section:first-of-type .hero-layout > div:first-child p { line-height: 1.5 !important; word-spacing: -0.03em !important; }
+          section:nth-of-type(2) > div > div > div:first-child p,
+          section:nth-of-type(3) > div > div > div:first-child p { line-height: 1.6 !important; word-spacing: -0.03em !important; }
         }
       `}</style>
     </>

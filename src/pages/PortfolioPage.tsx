@@ -161,7 +161,7 @@ export default function PortfolioPage() {
                       style={{
                         fontFamily: 'var(--font-sans)',
                         fontSize: '0.8rem',
-                        color: '#999',
+                        color: '#bbb',
                         lineHeight: 1.7,
                       }}
                     >
@@ -180,6 +180,11 @@ export default function PortfolioPage() {
       <section style={{ padding: '80px 24px', background: 'var(--bg)' }}>
         <ContactForm />
       </section>
+      <style>{`
+        @media (max-width: 768px) {
+          section:first-of-type > div > div { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
     </>
   )
 }

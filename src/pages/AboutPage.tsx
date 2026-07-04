@@ -41,7 +41,7 @@ export default function AboutPage() {
                   initiatives.
                 </p>
                 <p style={{ marginBottom: 24 }}>
-                  Working closely with a group of vulnerable human, I specialize in designing natural fiber
+                  Working closely with a group of vulnerable human,I specialize in designing natural fiber
                   products. However, my passion lies in the great outdoors. It all began at the age of 20 when
                   I had the opportunity to participate in a rock climbing training program. Since then, I have
                   embarked on a thrilling journey in the outdoor world.
@@ -188,6 +188,8 @@ export default function AboutPage() {
         @media (max-width: 768px) {
           section:first-of-type > div > div { grid-template-columns: 1fr !important; gap: 40px !important; }
           section:first-of-type > div > div > div:first-child > h1 { font-size: clamp(2rem, 8vw, 2.5rem) !important; }
+          section:first-of-type > div > div > div:first-child > div p { line-height: 1.6 !important; word-spacing: -0.03em !important; }
+          section:first-of-type > div > div > div:last-child ul { line-height: 1.8 !important; }
         }
       `}</style>
     </>
