@@ -45,10 +45,10 @@ export default function About() {
                 marginBottom: 16,
               }}
             >
-              Based in Karnataka,India, Akshay Deshpande is a mountaineer, photographer,
-              and storyteller on a relentless quest to explore the unknown. His
+              Based in Karnataka, India, I am a mountaineer, photographer,
+              and storyteller on a relentless quest to explore the unknown. My
               journey began on the rugged trails of the Western Ghats and has since
-              taken him to some of the most remote corners of the planet.
+              taken me to some of the most remote corners of the planet.
             </p>
             <p
               style={{
@@ -60,7 +60,7 @@ export default function About() {
               }}
             >
               From navigating crevasse fields on frozen glaciers to documenting
-              vanishing cultures through his lens.
+              vanishing cultures through my lens.
             </p>
             <blockquote
               style={{
@@ -75,7 +75,7 @@ export default function About() {
                 fontStyle: 'italic',
               }}
             >
-              &ldquo;Akshay brings an unwavering commitment to every expedition he undertakes.&rdquo;
+              &ldquo;I bring an unwavering commitment to every expedition I undertake.&rdquo;
             </blockquote>
             <div
               style={{

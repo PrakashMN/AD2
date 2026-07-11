@@ -9,6 +9,17 @@ const images = [
   '/Images/Satopanth/IMG20220826131401.jpg',
   '/Images/Nun/brightened_mountain_photo.jpg',
 ]
+
+const slideLabels = [
+  'Mt. Bandarpoonch, Garhwal Himalayas, Uttarakhand, India.',
+  'Heading Home | Mt. Bandarpoonch, Garhwal Himalayas, Uttarakhand, India.',
+  'Enroute | Mt. Bandarpoonch, Garhwal Himalayas, Uttarakhand, India.',
+  'Mt. Nun, Suru Valley, Kargil, India.',
+  'Mt. Satopanth, Garhwal Himalayas, Uttarakhand, India.',
+  'Mt. Satopanth, Garhwal Himalayas, Uttarakhand, India.',
+  'Mt. Nun, Suru Valley, Kargil, India.',
+]
+
 const isMobile = () => typeof window !== 'undefined' && window.innerWidth <= 768
 const imgPos = (i: number) => {
   if (!isMobile()) return 'center'
@@ -429,6 +440,44 @@ export default function Hero() {
           <path d="M9 18l6-6-6-6" />
         </svg>
       </button>
+
+      {/* Location Badge */}
+      <div
+        className="hero-location-badge"
+        style={{
+          position: 'absolute',
+          bottom: 30,
+          left: 30,
+          zIndex: 4,
+          display: 'flex',
+          alignItems: 'center',
+          gap: 8,
+          background: 'rgba(0,0,0,0.4)',
+          backdropFilter: 'blur(8px)',
+          padding: '8px 16px',
+          borderRadius: 9999,
+          border: '1px solid rgba(255,255,255,0.1)',
+          transition: 'opacity 0.4s ease',
+          opacity: animating ? 0 : 1,
+        }}
+      >
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: '#3b82f6' }}>
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+          <circle cx="12" cy="10" r="3" />
+        </svg>
+        <span
+          style={{
+            fontFamily: 'var(--font-sans)',
+            fontSize: '0.75rem',
+            fontWeight: 500,
+            letterSpacing: '0.05em',
+            color: 'rgba(255,255,255,0.9)',
+          }}
+        >
+          {slideLabels[current]}
+        </span>
+      </div>
+
       <style>{`
         @keyframes pulse {
           0%, 100% { opacity: 1; }
@@ -447,6 +496,8 @@ export default function Hero() {
           #hero-section > button { width: 36px !important; height: 36px !important; top: auto !important; bottom: 24px !important; transform: none !important; background: rgba(0,0,0,0.45) !important; }
           #hero-section > button:first-of-type { left: 10px !important; }
           #hero-section > button:last-of-type { right: 10px !important; }
+          .hero-location-badge { bottom: 20px !important; left: 16px !important; right: auto !important; max-width: calc(100% - 32px) !important; }
+          .hero-location-badge span { font-size: 0.65rem !important; white-space: nowrap !important; overflow: hidden !important; text-overflow: ellipsis !important; }
           #hero-section > div:nth-of-type(3) > div:last-child { flex-direction: column !important; align-items: stretch !important; gap: 12px !important; margin-top: 28px !important; }
           #hero-section > div:nth-of-type(3) > div:last-child > a { justify-content: center !important; padding: 13px 24px !important; font-size: 0.8rem !important; }
           #hero-section > div:nth-of-type(3) > div:last-child > a:last-child { color: #fff !important; border-color: rgba(255,255,255,0.4) !important; }

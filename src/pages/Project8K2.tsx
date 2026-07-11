@@ -336,6 +336,7 @@ export default function Project8K2() {
       <section style={{ padding: '80px 24px', background: 'var(--card-bg)' }}>
         <div className="container">
           <div
+            className="grid-section"
             style={{
               display: 'grid',
               gridTemplateColumns: '1fr 1fr',
@@ -361,7 +362,7 @@ export default function Project8K2() {
                   }}
                 />
                 <img
-                  src="https://static.wixstatic.com/media/4b485b_22646fd3f63b49be80ae5ad5db4056b7~mv2.jpg/v1/fill/w_984,h_639,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/4b485b_22646fd3f63b49be80ae5ad5db4056b7~mv2.jpg"
+                  src="/Images/ExtraImages/ChatGPT Image Jul 11, 2026, 06_03_48 PM.png"
                   alt="Everest region"
                   style={{ width: '100%', display: 'block' }}
                 />
@@ -414,6 +415,176 @@ export default function Project8K2() {
         </div>
       </section>
 
+      <section style={{ padding: '100px 24px', background: 'var(--bg)' }}>
+        <div className="container">
+          <div
+            className="grid-section"
+            style={{
+              display: 'grid',
+              gridTemplateColumns: '1fr 1fr',
+              gap: 64,
+              alignItems: 'center',
+            }}
+          >
+            <motion.div
+              initial={{ opacity: 0, x: -60 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.7, ease: 'easeOut' }}
+            >
+              <p className="section-label" style={{ marginBottom: 12 }}>First Milestone</p>
+              <h2
+                style={{
+                  fontFamily: 'var(--font-serif)',
+                  fontSize: '2rem',
+                  fontWeight: 700,
+                  marginBottom: 20,
+                  letterSpacing: '-0.01em',
+                  color: '#fff',
+                }}
+              >
+                Mt. Everest (8,848m)<br />
+                <span style={{ fontStyle: 'italic', color: '#8ec8e8' }}>The Roof of the World</span>
+              </h2>
+              <p
+                style={{
+                  fontFamily: 'var(--font-sans)',
+                  fontSize: '1rem',
+                  color: 'var(--text-muted)',
+                  lineHeight: 1.8,
+                  marginBottom: 16,
+                }}
+              >
+                Standing at 8,848 meters, Everest is the ultimate test of human endurance. 
+                The journey through the treacherous Khumbu Icefall, the freezing temperatures, 
+                and the extreme altitude of the &ldquo;Death Zone&rdquo; push the body to its absolute limits.
+              </p>
+              <p
+                style={{
+                  fontFamily: 'var(--font-sans)',
+                  fontSize: '1rem',
+                  color: 'var(--text-muted)',
+                  lineHeight: 1.8,
+                }}
+              >
+                For me, standing on the highest point on Earth isn't just about conquering the mountain &mdash; it's 
+                about conquering my own limitations and preparing for the immediate, gruelling traverse that follows.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 60 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.7, ease: 'easeOut', delay: 0.15 }}
+            >
+              <div style={{ borderRadius: 16, overflow: 'hidden', boxShadow: 'var(--shadow-lg)', position: 'relative' }}>
+                <div
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    borderRadius: 16,
+                    border: '1px solid rgba(255,255,255,0.08)',
+                    zIndex: 2,
+                    pointerEvents: 'none',
+                  }}
+                />
+                <img
+                  src="/Images/ExtraImages/ChatGPT Image Jul 11, 2026, 05_42_06 PM.png"
+                  alt="Mt Everest approach"
+                  style={{ width: '100%', display: 'block' }}
+                />
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      <section style={{ padding: '100px 24px', background: 'var(--card-bg)' }}>
+        <div className="container">
+          <div
+            className="grid-section"
+            style={{
+              display: 'grid',
+              gridTemplateColumns: '1fr 1fr',
+              gap: 64,
+              alignItems: 'center',
+            }}
+          >
+            <motion.div
+              initial={{ opacity: 0, x: -60 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.7, ease: 'easeOut' }}
+            >
+              <div style={{ borderRadius: 16, overflow: 'hidden', boxShadow: 'var(--shadow-lg)', position: 'relative' }}>
+                <div
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    borderRadius: 16,
+                    border: '1px solid rgba(255,255,255,0.08)',
+                    zIndex: 2,
+                    pointerEvents: 'none',
+                  }}
+                />
+                <img
+                  src="/Images/ExtraImages/ChatGPT Image Jul 11, 2026, 05_45_28 PM.png"
+                  alt="Mt Lhotse face"
+                  style={{ width: '100%', display: 'block' }}
+                />
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 60 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.7, ease: 'easeOut', delay: 0.15 }}
+            >
+              <p className="section-label" style={{ marginBottom: 12 }}>Second Milestone</p>
+              <h2
+                style={{
+                  fontFamily: 'var(--font-serif)',
+                  fontSize: '2rem',
+                  fontWeight: 700,
+                  marginBottom: 20,
+                  letterSpacing: '-0.01em',
+                  color: '#fff',
+                }}
+              >
+                Mt. Lhotse (8,516m)<br />
+                <span style={{ fontStyle: 'italic', color: '#7ec8e3' }}>The Formidable Neighbor</span>
+              </h2>
+              <p
+                style={{
+                  fontFamily: 'var(--font-sans)',
+                  fontSize: '1rem',
+                  color: 'var(--text-muted)',
+                  lineHeight: 1.8,
+                  marginBottom: 16,
+                }}
+              >
+                Immediately after descending from Everest, the second phase begins. Lhotse, the fourth highest 
+                peak in the world, presents a steep, icy, and unforgiving face. Attempting this immediately 
+                after the physical toll of Everest is what makes the 8K&times;2 project so exceptionally rare.
+              </p>
+              <p
+                style={{
+                  fontFamily: 'var(--font-sans)',
+                  fontSize: '1rem',
+                  color: 'var(--text-muted)',
+                  lineHeight: 1.8,
+                }}
+              >
+                It is a pure test of mental resilience and physical recovery &mdash; finding the strength to push 
+                upward once again when the body is screaming to go down.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       <Sponsors />
 
       <section style={{ padding: '80px 24px', background: 'var(--bg)' }}>
@@ -421,7 +592,7 @@ export default function Project8K2() {
       </section>
       <style>{`
         @media (max-width: 768px) {
-          section:nth-of-type(2) > div > div { grid-template-columns: 1fr !important; gap: 32px !important; }
+          .grid-section { grid-template-columns: 1fr !important; gap: 32px !important; }
         }
         @media (max-width: 640px) {
           section:first-of-type .container > div:nth-of-type(3) { justify-content: center !important; }

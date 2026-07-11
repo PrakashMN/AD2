@@ -37,7 +37,7 @@ const expeditions = [
     peak: 'Mt Nun',
     year: '2023',
     elevation: '7,135 m',
-    image: 'https://static.wixstatic.com/media/4b485b_626b77affa204a54b09c97710fed0459~mv2.jpg',
+    image: '/Images/Nun/brightened_mountain_photo.jpg',
     story: 'An unsuccessful attempt to climb this peak has been a life learning.',
     status: 'Attempted',
   },
